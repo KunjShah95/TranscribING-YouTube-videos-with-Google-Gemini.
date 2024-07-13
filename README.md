@@ -38,3 +38,4 @@ This Streamlit app utilizes Google Gemini Pro to create detailed notes or concis
 **Notes:**
 - History is stored in a SQLite database named history.db.
 - Google Gemini Pro is used for text generation; remember to cite the generated content appropriately.
+This README offers a detailed guide on the app's features, installation, usage, and key points. Customize it as needed.
