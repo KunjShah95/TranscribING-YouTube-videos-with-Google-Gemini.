@@ -1,43 +1,40 @@
-# TranscribING-YouTube-videos-with-Google-Gemini.
+**YouTube Transcript Summarization with Gemini**
 
-# Gemini YouTube Transcript Summarizer
+This Streamlit app utilizes Google Gemini Pro to create detailed notes or concise summaries from YouTube video transcripts, offering a user-friendly interface for extracting key insights.
 
-This Streamlit application leverages Google Gemini Pro to generate detailed notes or concise summaries from YouTube video transcripts. It provides a user-friendly interface for extracting key insights and storing them for future reference.
+**Key Features:**
+- Input a YouTube video link to extract the transcript and receive either detailed notes or a concise summary.
+- Detailed Notes: Get a comprehensive breakdown of key points with timestamps, context, and explanations.
+- Concise Summary: Receive a brief overview of the video's main points along with timestamps.
+- History Storage: Summaries are saved in a database for easy access and review.
+- User-Friendly Interface: Interact with the app through a simple and intuitive web-based interface with Streamlit.
 
-## Features
+**Installation Guide:**
+1. Install Python from [https://www.python.org/] if not already installed.
+2. Install required libraries:
+   - streamlit
+   - youtube-transcript-api
+   - google-generativeai
+   - sqlite3
+3. Obtain a Google Generative AI API key from [https://cloud.google.com/generative-ai].
+4. Create a .env file in the project's root directory and add: GOOGLE_API_KEY=YOUR_API_KEY
+5. Install python-dotenv: pip install python-dotenv
+6. Load environment variables in app.py:
+   ```python
+   from dotenv import load_dotenv
+   load_dotenv()
+   ```
+**Running the App:**
+- Save the code as app.py.
+- Run the script in the terminal: streamlit run app.py
 
-- **YouTube Video Transcript Summarization:**  Input a YouTube video link, and the app will extract the transcript and generate either detailed notes or a concise summary.
-- **Detailed Notes:**  Provides a comprehensive breakdown of key points, including timestamps, context, and explanations.
-- **Concise Summary:**  Offers a brief overview of the video's main points, also with timestamps.
-- **History Storage:**  Saves generated summaries in a database for easy access and review.
-- **User-Friendly Interface:**  Streamlit provides a simple and intuitive web-based interface for interacting with the app.
+**Usage:**
+- Launch the app by running app.py.
+- Paste the YouTube video URL.
+- Choose "Detailed Notes" or "Summary".
+- Click "Generate" to process the transcript and view the output.
+- Previously generated summaries can be accessed via the "Select History" dropdown.
 
-## Installation
-
-1. **Install Python:** If you don't have Python installed, download and install it from [https://www.python.org/](https://www.python.org/).
-2. **Install Required Libraries:**
-   ```bash
-   pip install streamlit youtube-transcript-api google-generativeai sqlite3
-Set up Google Generative AI API Key:
-Obtain an API key from https://cloud.google.com/generative-ai.
-Create a .env file in the root directory of your project and add the following line:
-GOOGLE_API_KEY=YOUR_API_KEY
-Install the python-dotenv package:
-pip install python-dotenv
-Import and load the environment variables in your app.py file:
-from dotenv import load_dotenv
-load_dotenv()
-Running the App
-Save the code: Save the provided Python code as app.py.
-Run the script: Open a terminal or command prompt and navigate to the directory where you saved the file. Then, run the following command:
-streamlit run app.py
-Usage
-Launch the app: Run the app.py script.
-Enter YouTube Link: Paste the URL of the YouTube video you want to summarize.
-Choose Output Type: Select either "Detailed Notes" or "Summary" based on your preference.
-Generate: Click the "Generate" button to process the transcript and generate the output.
-View Output: The generated summary will be displayed below the "Output" heading.
-Access History: Use the "Select History" dropdown to view previously generated summaries.
-Notes
-The app stores history in a SQLite database named history.db.
-The app uses Google Gemini Pro for text generation. Make sure to cite the generated content appropriately.
+**Notes:**
+- History is stored in a SQLite database named history.db.
+- Google Gemini Pro is used for text generation; remember to cite the generated content appropriately.
