@@ -5,6 +5,7 @@ from youtube_transcript_api import YouTubeTranscriptApi
 import google.generativeai as genai
 import time
 import sqlite3
+import datetime
 
 # Load environment variables
 load_dotenv()
@@ -13,7 +14,7 @@ load_dotenv()
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # Database setup
-conn = sqlite3.connect('history.db')
+conn = sqlite3.connect('history.db')  # Connect to the database outside the button block
 cursor = conn.cursor()
 cursor.execute('''CREATE TABLE IF NOT EXISTS history (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -64,6 +65,11 @@ def generate_gemini_content(transcript_text, prompt):
 st.title(
     "Gemini YouTube Transcript Summarizer: Extract Key Insights from YouTube Videos"
 )
+
+# Disclaimer and Citation Instructions
+st.markdown("**Disclaimer:** This application uses Google Gemini Pro to generate summaries. The generated content is not original and should be cited appropriately.")
+st.markdown("**Citation:** To cite the generated content, please include the following information: Google Gemini Pro, [Date of Generation], [Relevant Parameters (if any)]")
+
 youtube_link = st.text_input("Enter YouTube Video Link:")
 
 if youtube_link:
@@ -116,4 +122,4 @@ if history_option != "None":
         if history_summary:
             st.write(history_summary[0])
 
-conn.close()
+conn.close()  # Close the database connection outside the button block
